@@ -1,6 +1,8 @@
 package com.jee.core.controller;
 
 import com.jee.core.model.Calculation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,10 @@ public class CalculationTransactionController {
 
     /**
      */
+    private static final Logger log = LoggerFactory.getLogger(CalculationTransactionController.class);
+
+    /**
+     */
     @Autowired
     private JmsTemplate jmsTemplate;
 
@@ -26,9 +32,9 @@ public class CalculationTransactionController {
      *
      * @param transaction the transaction to save
      */
-    @PostMapping("/send")
-    public void send(@RequestBody Calculation transaction) {
-        System.out.println("Sending a transaction.");
+    @PostMapping("/result-calculation")
+    public void send(@RequestBody final Calculation transaction) {
+        log.info("Sending a transaction to JMS instance Queue - calculationTransactionQueue");
 
         // Post message to the message queue named "OrderTransactionQueue"
         jmsTemplate.convertAndSend("calculationTransactionQueue", transaction);

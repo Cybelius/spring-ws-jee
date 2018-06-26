@@ -1,5 +1,7 @@
 package com.jee.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
@@ -22,6 +24,10 @@ import javax.jms.ConnectionFactory;
 public class Application {
 
     /**
+     */
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
+    /**
      * Create of a jms factory to construct the jms queue
      *
      * @param connectionFactory the configuration factory to set
@@ -31,6 +37,7 @@ public class Application {
     @Bean
     public JmsListenerContainerFactory<?> myFactory(final ConnectionFactory connectionFactory,
                                                     final DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        log.debug("connectionFactory: {}, configurer: {}", connectionFactory, configurer);
 
         final DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 

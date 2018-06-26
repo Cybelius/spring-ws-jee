@@ -33,15 +33,26 @@ public class Calculation {
 
     /**
      */
+    private Integer countValue;
+
+    /**
+     */
+    private Integer type;
+
+    /**
+     */
     public Calculation() {
     }
 
     /**
      */
-    public Calculation(final String name, final String description, final List<String> results) {
+    public Calculation(final String name, final String description,
+       final List<String> results, final Integer countValue, final Integer type) {
         this.name = name;
         this.description = description;
         this.results = results;
+        this.countValue = countValue;
+        this.type = type;
     }
 
     /**
@@ -92,6 +103,22 @@ public class Calculation {
         this.results = results;
     }
 
+    public Integer getCountValue() {
+        return countValue;
+    }
+
+    public void setCountValue(final Integer countValue) {
+        this.countValue = countValue;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(final Integer type) {
+        this.type = type;
+    }
+
     /**
      *
      * @return a build String object
@@ -99,9 +126,11 @@ public class Calculation {
     @Override
     public String toString() {
         return "Calculation{" +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", results=" + results +
+                ", countValue=" + countValue +
+                ", type=" + type +
                 '}';
     }
 }
