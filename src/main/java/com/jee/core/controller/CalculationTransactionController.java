@@ -30,13 +30,13 @@ public class CalculationTransactionController {
      * Endpoint for calculation engine
      * Retrieve a JSON file and convert this JSON file into the Jms Queue
      *
-     * @param transaction the transaction to save
+     * @param calculation the transaction to save
      */
     @PostMapping("/result-calculation")
-    public void send(@RequestBody final Calculation transaction) {
+    public void send(@RequestBody final Calculation calculation) {
         log.info("Sending a transaction to JMS instance Queue - calculationTransactionQueue");
 
         // Post message to the message queue named "OrderTransactionQueue"
-        jmsTemplate.convertAndSend("calculationTransactionQueue", transaction);
+        jmsTemplate.convertAndSend("calculationTransactionQueue", calculation);
     }
 }

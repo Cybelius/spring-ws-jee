@@ -1,2 +1,5 @@
 H2 database
 http://www.springboottutorial.com/spring-boot-and-h2-in-memory-database
+
+Run ActiveMQ for listening port
+docker run -p 61616:61616 -p 8161:8161 -t webcenter/activemq

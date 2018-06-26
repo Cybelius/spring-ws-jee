@@ -12,14 +12,22 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class ActionAPI {
 
+    /**
+     */
     private Long id_device;
 
+    /**
+     */
     private ActionType action;
 
+    /**
+     */
     public ActionAPI() {
         super();
     }
 
+    /**
+     */
     @Override
     public String toString() {
         return "ActionAPI{" +
@@ -28,18 +36,26 @@ public class ActionAPI {
                 '}';
     }
 
+    /**
+     */
     public Long getId_device() {
         return id_device;
     }
 
+    /**
+     */
     public void setId_device(final Long id_device) {
         this.id_device = id_device;
     }
 
+    /**
+     */
     public ActionType getAction() {
         return action;
     }
 
+    /**
+     */
     public void setAction(final ActionType action) {
         this.action = action;
     }

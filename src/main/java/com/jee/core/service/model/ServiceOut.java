@@ -1,5 +1,7 @@
 package com.jee.core.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.jee.core.model.Calculation;
 import com.jee.core.service.model.calculation.CalculationOut;
 
@@ -9,6 +11,8 @@ import java.util.Collection;
 /**
  * Created by Geoffrey on 26.06.2018
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class ServiceOut implements Serializable {
 
     /**

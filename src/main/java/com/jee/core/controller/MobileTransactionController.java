@@ -1,6 +1,5 @@
 package com.jee.core.controller;
 
-import com.jee.core.model.Calculation;
 import com.jee.core.service.model.ActionAPI;
 import com.jee.core.service.model.DeviceAPI;
 import com.jee.core.service.model.MetricAPI;
@@ -43,32 +42,35 @@ public class MobileTransactionController extends AbstractController {
 
     /**
      * get latest metrics by devices
+     *
      * @return a list of metrics by devices
      */
     @GetMapping("/devices/{id}/metrics")
     public List<MetricAPI> getLatestMetricsByDevice(@PathVariable @NotNull final Long id) {
         log.debug("id: {}", id);
 
-        final List<MetricAPI> metricbydevices = super.getMetricsByDevices(id);
+        final List<MetricAPI> metricByDevices = super.getMetricsByDevices(id);
 
-        if (metricbydevices == null) {
+        if (metricByDevices == null) {
             throw new InternalError("no metrics found");
         }
 
         //return the result
-        return metricbydevices;
+        return metricByDevices;
     }
 
     /**
-     *
      * @return the collection of calculated metrics from database
      */
     @GetMapping("/calculated-metrics")
     public ResponseEntity<ServiceOut> getCalculatedMetrics() {
+        final ServiceOut out = super.calculationService.getCalculatedMetrics();
 
+        if (out == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-
-        return null;
+        return new ResponseEntity<>(out, HttpStatus.OK);
     }
 
     /**
