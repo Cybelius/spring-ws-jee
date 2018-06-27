@@ -42,6 +42,7 @@ public class Calculation {
     /**
      */
     public Calculation() {
+        super();
     }
 
     /**
@@ -53,6 +54,21 @@ public class Calculation {
         this.results = results;
         this.countValue = countValue;
         this.type = type;
+    }
+
+    /**
+     *
+     * @return a build String object
+     */
+    @Override
+    public String toString() {
+        return "Calculation{" +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", results=" + results +
+                ", countValue=" + countValue +
+                ", type=" + type +
+                '}';
     }
 
     /**
@@ -117,20 +133,5 @@ public class Calculation {
 
     public void setType(final Integer type) {
         this.type = type;
-    }
-
-    /**
-     *
-     * @return a build String object
-     */
-    @Override
-    public String toString() {
-        return "Calculation{" +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", results=" + results +
-                ", countValue=" + countValue +
-                ", type=" + type +
-                '}';
     }
 }

@@ -3,6 +3,8 @@ package com.jee.core.controller;
 import com.jee.core.service.model.DeviceAPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,12 +25,16 @@ public class BOTransactionController extends AbstractController {
     /**
      */
     @GetMapping("/devices")
-    public List<DeviceAPI> getdevices() {
+    public ResponseEntity<List<DeviceAPI>> getDevices() {
         final List<DeviceAPI> devices = super.getListDevices();
+
+        if (devices == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
         log.info(devices.toString());
 
         //return the result
-        return devices;
+        return new ResponseEntity<>(devices, HttpStatus.OK);
     }
 }

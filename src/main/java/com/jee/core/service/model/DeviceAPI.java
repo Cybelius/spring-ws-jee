@@ -2,6 +2,8 @@ package com.jee.core.service.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Collection;
+
 /**
  * Created by Geoffrey on 26.06.2018
  *
@@ -20,7 +22,7 @@ public class DeviceAPI {
 
     /**
      */
-    private String employees;
+    private Collection<EmployeeAPI> employees;
 
     /**
      */
@@ -81,13 +83,13 @@ public class DeviceAPI {
 
     /**
      */
-    public String getEmployees() {
+    public Collection<EmployeeAPI> getEmployees() {
         return employees;
     }
 
     /**
      */
-    public void setEmployees(final String employees) {
+    public void setEmployees(final Collection<EmployeeAPI> employees) {
         this.employees = employees;
     }
 
