@@ -2,8 +2,7 @@ package com.jee.core.service.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.jee.core.model.Calculation;
-import com.jee.core.service.model.calculation.CalculationOut;
+import com.jee.core.service.model.transitionobject.CalculationOut;
 
 import java.io.Serializable;
 import java.util.Collection;

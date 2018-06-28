@@ -14,7 +14,7 @@ public class ActionAPI {
 
     /**
      */
-    private Long id_device;
+    private Long id;
 
     /**
      */
@@ -31,21 +31,21 @@ public class ActionAPI {
     @Override
     public String toString() {
         return "ActionAPI{" +
-                "id_device=" + id_device +
+                "id_device=" + id +
                 ", action='" + action + '\'' +
                 '}';
     }
 
     /**
      */
-    public Long getId_device() {
-        return id_device;
+    public Long getId() {
+        return id;
     }
 
     /**
      */
-    public void setId_device(final Long id_device) {
-        this.id_device = id_device;
+    public void setId(final Long id) {
+        this.id = id;
     }
 
     /**

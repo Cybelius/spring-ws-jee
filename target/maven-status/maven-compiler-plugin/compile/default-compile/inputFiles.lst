@@ -1,6 +1,6 @@
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/model/Calculation.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/ActionAPI.java
-/Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/calculation/CalculationOut.java
+/Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/transitionobject/EmployeeOut.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/repository/CalculationTransactionRepository.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/Application.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/EmployeeAPI.java
@@ -14,4 +14,5 @@
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/ServiceOut.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/DeviceAPI.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/controller/BOTransactionController.java
+/Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/transitionobject/CalculationOut.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/CalculationService.java

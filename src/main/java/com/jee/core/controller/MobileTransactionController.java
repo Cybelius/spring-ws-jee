@@ -79,8 +79,8 @@ public class MobileTransactionController extends AbstractController {
      * @param action the action to send
      */
     @PostMapping("/action")
-    public void requestDeviceAction(@RequestBody final ActionAPI action) {
-        log.info("action: {}", action);
+    public ResponseEntity<ActionAPI> requestDeviceAction(@RequestBody final ActionAPI action) {
+        log.debug("action: {}", action);
 
         final RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -93,7 +93,7 @@ public class MobileTransactionController extends AbstractController {
         try {
             // send request and parse result
             final ResponseEntity<ActionAPI> response = restTemplate
-                    .exchange("http://wcfwebservice.azurewebsites.net/Service.svc/devices/device/" + action.getId_device() + "/command",
+                    .exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/device/command",
                             HttpMethod.POST, entity, ActionAPI.class);
 
             log.info(response.toString());
@@ -101,5 +101,7 @@ public class MobileTransactionController extends AbstractController {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());
         }
+
+        return new ResponseEntity<>(action, HttpStatus.OK);
     }
 }

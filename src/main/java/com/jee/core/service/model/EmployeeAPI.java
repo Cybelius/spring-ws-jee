@@ -3,6 +3,8 @@ package com.jee.core.service.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.util.Collection;
+
 /**
  * Created by Geoffrey on 27.06.2018
  */
@@ -16,7 +18,7 @@ public class EmployeeAPI {
 
     /**
      */
-    private String devices;
+    private Collection<DeviceAPI> devices;
 
     /**
      */
@@ -58,25 +60,25 @@ public class EmployeeAPI {
 
     /**
      */
-    public String getDevices() {
+    public Collection<DeviceAPI> getDevices() {
         return devices;
     }
 
     /**
      */
-    public void setDevices(final String devices) {
+    public void setDevices(final Collection<DeviceAPI> devices) {
         this.devices = devices;
     }
 
     /**
      */
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
     /**
      */
-    public void setLastname(final String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 

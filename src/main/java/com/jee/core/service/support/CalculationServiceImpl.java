@@ -2,7 +2,7 @@ package com.jee.core.service.support;
 
 import com.jee.core.model.Calculation;
 import com.jee.core.repository.CalculationTransactionRepository;
-import com.jee.core.service.model.calculation.CalculationOut;
+import com.jee.core.service.model.transitionobject.CalculationOut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.jee.core.service.CalculationService;
