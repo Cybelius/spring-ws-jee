@@ -46,7 +46,7 @@ public class CalculationTransactionController {
      *
      * @param calculation the transaction to save
      */
-    @GetMapping("/data-calculated")
+    @PostMapping("/data-calculated")
     public void send(@RequestBody final CalculatedData calculation) {
         log.info("Sending a transaction to JMS instance Queue - dataCalculatedTransactionQueue");
 

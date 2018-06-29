@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -100,7 +101,7 @@ public class MobileTransactionController extends AbstractController {
      * @param action the action to send
      */
     @PostMapping("/action")
-    public ResponseEntity<ActionAPI> requestDeviceAction(@RequestBody final ActionAPI action) {
+    public ResponseEntity<ActionAPI> requestDeviceAction(@RequestBody @NonNull final ActionAPI action) {
         log.debug("action: {}", action);
 
         final RestTemplate restTemplate = new RestTemplate();

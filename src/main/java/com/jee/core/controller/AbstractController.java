@@ -60,6 +60,8 @@ abstract class AbstractController {
      * @return the list of devices
      */
     protected DeviceAPI getDevice(@NotNull final Long id) {
+        log.debug("id: {}", id);
+
         final RestTemplate restTemplate = new RestTemplate();
 
         final ResponseEntity<DeviceAPI> response =
@@ -68,12 +70,8 @@ abstract class AbstractController {
                         }
                 );
 
-        final DeviceAPI devices = response.getBody();
-
-//        log.info(devices.toString());
-
         //return the result
-        return devices;
+        return response.getBody();
     }
 
     /**
