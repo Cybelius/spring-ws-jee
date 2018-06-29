@@ -14,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+import static com.jee.core.Application.CONSTANT_IP_WCF;
+
 /**
  * Created by Geoffrey on 26.06.2018
  */
@@ -50,7 +52,7 @@ public class BOTransactionController extends AbstractController {
         final RestTemplate restTemplate = new RestTemplate();
 
         final ResponseEntity<List<EmployeeAPI>> employeesResponse =
-                restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/employees",
+                restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/employees",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<EmployeeAPI>>() {
                         }
                 );
@@ -83,7 +85,7 @@ public class BOTransactionController extends AbstractController {
 
         try {
             final ResponseEntity<EmployeeOut> response =
-                    restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/employees/employee/" + id,
+                    restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/employees/employee/" + id,
                             HttpMethod.PUT, entity, EmployeeOut.class);
 
 //            log.info(response.toString());

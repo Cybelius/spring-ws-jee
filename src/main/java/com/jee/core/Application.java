@@ -28,6 +28,10 @@ public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     /**
+     */
+    public static final String CONSTANT_IP_WCF = "http://wcfwebservice.azurewebsites.net/Service.svc";
+
+    /**
      * Create of a jms factory to construct the jms queue
      *
      * @param connectionFactory the configuration factory to set

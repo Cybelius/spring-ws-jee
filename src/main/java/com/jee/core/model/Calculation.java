@@ -119,18 +119,26 @@ public class Calculation {
         this.results = results;
     }
 
+    /**
+     */
     public Integer getCountValue() {
         return countValue;
     }
 
+    /**
+     */
     public void setCountValue(final Integer countValue) {
         this.countValue = countValue;
     }
 
+    /**
+     */
     public Integer getType() {
         return type;
     }
 
+    /**
+     */
     public void setType(final Integer type) {
         this.type = type;
     }

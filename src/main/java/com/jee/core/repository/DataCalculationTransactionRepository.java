@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by Geoffrey on 28.08.2018
  */
 @Repository
-public interface DataCalculationTransactionRepository extends JpaRepository<CalculatedData, Long> {
+public interface DataCalculationTransactionRepository extends JpaRepository<CalculatedData, Long>, DataCalculationTransactionRepositoryEx {
     //empty
 }

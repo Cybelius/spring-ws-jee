@@ -14,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+import static com.jee.core.Application.CONSTANT_IP_WCF;
+
 /**
  * Created by Geoffrey on 26.06.2018
  */
@@ -42,7 +44,7 @@ abstract class AbstractController {
         final RestTemplate restTemplate = new RestTemplate();
 
         final ResponseEntity<List<DeviceAPI>> deviceResponse =
-            restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices",
+            restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/devices",
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<DeviceAPI>>() {
                 }
             );
@@ -65,7 +67,7 @@ abstract class AbstractController {
         final RestTemplate restTemplate = new RestTemplate();
 
         final ResponseEntity<DeviceAPI> response =
-                restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices/device/" + id,
+                restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/devices/device/" + id,
                         HttpMethod.GET, null, new ParameterizedTypeReference<DeviceAPI>() {
                         }
                 );
@@ -84,7 +86,7 @@ abstract class AbstractController {
         final RestTemplate restTemplate = new RestTemplate();
 
         final ResponseEntity<List<MetricAPI>> metricResponse =
-                restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices/" + id + "/metrics",
+                restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/devices/" + id + "/metrics",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<MetricAPI>>() {
                         }
                 );

@@ -3,7 +3,8 @@ package com.jee.core.controller;
 import com.jee.core.service.model.ActionAPI;
 import com.jee.core.service.model.DeviceAPI;
 import com.jee.core.service.model.MetricAPI;
-import com.jee.core.service.model.ServiceOut;
+import com.jee.core.service.model.transitionobject.CalculatedDataOut;
+import com.jee.core.service.model.transitionobject.ServiceOut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
@@ -15,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+
+import static com.jee.core.Application.CONSTANT_IP_WCF;
 
 /**
  * Created by Geoffrey on 26.06.2018
@@ -28,36 +31,20 @@ public class MobileTransactionController extends AbstractController {
     private static final Logger log = LoggerFactory.getLogger(MobileTransactionController.class);
 
     /**
+     */
+    public MobileTransactionController() {
+        super();
+    }
+
+    /**
      * get list of devices from .NET platform
      * return to String json
      */
     @GetMapping("/devices")
     public List<DeviceAPI> getListDevices() {
-        final List<DeviceAPI> devices = super.getListDevices();
-
-//        log.info(devices.toString());
 
         //return the result
-        return devices;
-    }
-
-    /**
-     * get latest metrics by devices
-     *
-     * @return a list of metrics by devices
-     */
-    @GetMapping("/devices/{id}/metrics")
-    public List<MetricAPI> getLatestMetricsByDevice(@PathVariable @NotNull final Long id) {
-        log.debug("id: {}", id);
-
-        final List<MetricAPI> metricByDevices = super.getMetricsByDevices(id);
-
-        if (metricByDevices == null) {
-            throw new InternalError("no metrics found");
-        }
-
-        //return the result
-        return metricByDevices;
+        return super.getListDevices();
     }
 
     /**
@@ -80,6 +67,25 @@ public class MobileTransactionController extends AbstractController {
     }
 
     /**
+     * get latest metrics by devices
+     *
+     * @return a list of metrics by devices
+     */
+    @GetMapping("/devices/{id}/metrics")
+    public List<MetricAPI> getLatestMetricsByDevice(@PathVariable @NotNull final Long id) {
+        log.debug("id: {}", id);
+
+        final List<MetricAPI> metricByDevices = super.getMetricsByDevices(id);
+
+        if (metricByDevices == null) {
+            throw new InternalError("no metrics found");
+        }
+
+        //return the result
+        return metricByDevices;
+    }
+
+    /**
      * When mobile app want calculations from db web service
      *
      * @return the collection of calculated metrics from database
@@ -94,6 +100,57 @@ public class MobileTransactionController extends AbstractController {
 
         return new ResponseEntity<>(out, HttpStatus.OK);
     }
+
+    /**
+     * When mobile app want calculations from db web service
+     *
+     * @return the collection of calculated metrics from database
+     */
+    @GetMapping("/data/temperature")
+    public List<CalculatedDataOut> getDataCalculatedTemp() {
+        return super.calculationService.getDataCalculatedByTemperature();
+    }
+
+    /**
+     * When mobile app want calculations from db web service
+     *
+     * @return the collection of calculated metrics from database
+     */
+    @GetMapping("/data/humidity")
+    public List<CalculatedDataOut> getDataCalculatedHumidity() {
+        return super.calculationService.getDataCalculatedByHumidity();
+    }
+
+    /**
+     * When mobile app want calculations from db web service
+     *
+     * @return the collection of calculated metrics from database
+     */
+    @GetMapping("/data/co2")
+    public List<CalculatedDataOut> getDataCalculatedCo2() {
+        return super.calculationService.getDataCalculatedByCo2();
+    }
+
+    /**
+     * When mobile app want calculations from db web service
+     *
+     * @return the collection of calculated metrics from database
+     */
+    @GetMapping("/data/sound-level")
+    public List<CalculatedDataOut> getDataCalculatedSoundLevel() {
+        return super.calculationService.getDataCalculatedBySoundLevel();
+    }
+
+    /**
+     *
+     */
+    @PostMapping("/data/date-range")
+    public List<CalculatedDataOut> getDataCalculatedByDates(@PathVariable final Long startDate, @PathVariable final Long endDate) {
+        log.info("startDate: {}, endDate: {}", startDate, endDate);
+
+        return super.calculationService.getDataCalculatedByDates(startDate, endDate);
+    }
+
 
     /**
      * get the json parameter from call and send to WCF server
@@ -115,7 +172,7 @@ public class MobileTransactionController extends AbstractController {
         try {
             // send request and parse result
             final ResponseEntity<ActionAPI> response = restTemplate
-                    .exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/device/command",
+                    .exchange(CONSTANT_IP_WCF + "/calculs/device/command",
                             HttpMethod.POST, entity, ActionAPI.class);
 
 //            log.info(response.toString());
