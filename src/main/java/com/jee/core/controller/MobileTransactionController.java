@@ -34,7 +34,7 @@ public class MobileTransactionController extends AbstractController {
     public List<DeviceAPI> getListDevices() {
         final List<DeviceAPI> devices = super.getListDevices();
 
-        log.info(devices.toString());
+//        log.info(devices.toString());
 
         //return the result
         return devices;
@@ -117,7 +117,7 @@ public class MobileTransactionController extends AbstractController {
                     .exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/device/command",
                             HttpMethod.POST, entity, ActionAPI.class);
 
-            log.info(response.toString());
+//            log.info(response.toString());
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());
