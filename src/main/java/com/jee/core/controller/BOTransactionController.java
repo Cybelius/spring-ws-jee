@@ -36,7 +36,7 @@ public class BOTransactionController extends AbstractController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        log.info(devices.toString());
+//        log.info(devices.toString());
 
         //return the result
         return new ResponseEntity<>(devices, HttpStatus.OK);
@@ -57,7 +57,7 @@ public class BOTransactionController extends AbstractController {
 
         final List<EmployeeAPI> employees = employeesResponse.getBody();
 
-        log.info(employees.toString());
+//        log.info(employees.toString());
 
         //return the result
         return new ResponseEntity<>(employees, HttpStatus.OK);
@@ -86,7 +86,7 @@ public class BOTransactionController extends AbstractController {
                     restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/employees/employee/" + id,
                             HttpMethod.PUT, entity, EmployeeOut.class);
 
-            log.info(response.toString());
+//            log.info(response.toString());
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());

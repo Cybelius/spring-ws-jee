@@ -60,6 +60,27 @@ public class MobileTransactionController extends AbstractController {
     }
 
     /**
+     * get latest metrics by devices
+     *
+     * @return a list of metrics by devices
+     */
+    @GetMapping("/devices/device/{id}")
+    public DeviceAPI getDevice(@PathVariable @NotNull final Long id) {
+        log.debug("id: {}", id);
+
+        final DeviceAPI device = super.getDevice(id);
+
+        if (device == null) {
+            throw new InternalError("no device found");
+        }
+
+        //return the result
+        return device;
+    }
+
+    /**
+     * When mobile app want calculations from db web service
+     *
      * @return the collection of calculated metrics from database
      */
     @GetMapping("/calculated-metrics")

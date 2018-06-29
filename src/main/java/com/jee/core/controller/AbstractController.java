@@ -11,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -49,6 +50,27 @@ abstract class AbstractController {
         final List<DeviceAPI> devices = deviceResponse.getBody();
 
         log.info(devices.toString());
+
+        //return the result
+        return devices;
+    }
+
+    /**
+     *
+     * @return the list of devices
+     */
+    protected DeviceAPI getDevice(@NotNull final Long id) {
+        final RestTemplate restTemplate = new RestTemplate();
+
+        final ResponseEntity<DeviceAPI> response =
+                restTemplate.exchange("http://wcfwebservice.azurewebsites.net/Service.svc/calculs/devices/device/" + id,
+                        HttpMethod.GET, null, new ParameterizedTypeReference<DeviceAPI>() {
+                        }
+                );
+
+        final DeviceAPI devices = response.getBody();
+
+//        log.info(devices.toString());
 
         //return the result
         return devices;
