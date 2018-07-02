@@ -1,6 +1,7 @@
 package com.jee.core.repository.support;
 
 import com.jee.core.model.CalculatedData;
+import com.jee.core.model.DeviceType;
 import com.jee.core.repository.DataCalculationTransactionRepositoryEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,18 +100,18 @@ class DataCalculationTransactionRepositoryImpl implements DataCalculationTransac
     }
 
     /**
-     * @see DataCalculationTransactionRepositoryEx#findAllByDates(long, long)
+     * @see DataCalculationTransactionRepositoryEx#findAllByDates(long, long, DeviceType)
      */
     @Override
-    public List<CalculatedData> findAllByDates(final long startDate, final long endDate) {
-        log.debug("startDate: {}, endDate: {}", startDate, endDate);
+    public List<CalculatedData> findAllByDates(final long startDate, final long endDate, final DeviceType deviceType) {
+        log.info("startDate: {}, endDate: {}, deviceType: {}", startDate, endDate, deviceType);
         log.info("start transaction sensor for date range");
 
-        final String param = "soundLevelSensor";
+        final String param = deviceType.name();
 
         final TypedQuery<CalculatedData> query = this.em.createQuery(
                 "SELECT cd FROM CalculatedData cd "
-                        + "WHERE cd.date >= ?1 AND cd.date < ?2 AND cd.deviceType = ?3"
+                        + "WHERE cd.date >= ?1 AND cd.date < ?2 AND cd.deviceType = ?3 "
                         + "ORDER BY cd.dateType ASC ", CalculatedData.class
         );
         query.setParameter(1, startDate);

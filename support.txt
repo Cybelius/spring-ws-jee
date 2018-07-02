@@ -3,3 +3,10 @@ http://www.springboottutorial.com/spring-boot-and-h2-in-memory-database
 
 Run ActiveMQ for listening port
 docker run -p 61616:61616 -p 8161:8161 -t webcenter/activemq
+
+Run program in background
+https://stackoverflow.com/questions/285015/linux-prevent-a-background-process-from-being-stopped-after-closing-ssh-client
+
+Kill process nohup
+https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a-nohup-process
+

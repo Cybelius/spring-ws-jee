@@ -10,6 +10,7 @@
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/model/Calculation.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/ActionAPI.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/repository/CalculationTransactionRepository.java
+/Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/transitionobject/EmployeeIn.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/model/DateType.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/model/CalculatedData.java
 /Users/geoffrey/workspace/exia/spring-ws-jee/src/main/java/com/jee/core/service/model/transitionobject/CalculatedDataOut.java

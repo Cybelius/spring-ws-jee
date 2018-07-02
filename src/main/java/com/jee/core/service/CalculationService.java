@@ -1,5 +1,6 @@
 package com.jee.core.service;
 
+import com.jee.core.model.DeviceType;
 import com.jee.core.service.model.transitionobject.CalculatedDataOut;
 import com.jee.core.service.model.transitionobject.ServiceOut;
 
@@ -38,5 +39,5 @@ public interface CalculationService {
     /**
      * @return a {@link CalculatedDataOut}
      */
-    List<CalculatedDataOut> getDataCalculatedByDates(final long startDate, final long endDate);
+    List<CalculatedDataOut> getDataCalculatedByDates(final long startDate, final long endDate, final DeviceType deviceType);
 }

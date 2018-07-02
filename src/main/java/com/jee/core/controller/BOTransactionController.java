@@ -2,11 +2,13 @@ package com.jee.core.controller;
 
 import com.jee.core.service.model.DeviceAPI;
 import com.jee.core.service.model.EmployeeAPI;
+import com.jee.core.service.model.transitionobject.EmployeeIn;
 import com.jee.core.service.model.transitionobject.EmployeeOut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -63,6 +65,42 @@ public class BOTransactionController extends AbstractController {
 
         //return the result
         return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+
+    /**
+     * @return list of employees
+     */
+    @PostMapping("/employees/employee/login")
+    public ResponseEntity<Boolean> login(@RequestBody @NonNull final EmployeeIn employee) {
+        log.info("employee: {}", employee);
+
+        final RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+        final HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        final HttpEntity<EmployeeIn> entity = new HttpEntity<>(employee, headers);
+
+        boolean isAdmin = false;
+
+        try {
+            // send request and parse result
+            final ResponseEntity<Boolean> response = restTemplate
+                    .exchange(CONSTANT_IP_WCF + "/calculs/employee/connect",
+                            HttpMethod.POST, entity, Boolean.class);
+
+//            log.info(response.toString());
+
+            isAdmin = response.getBody();
+        } catch (HttpClientErrorException e) {
+            log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
+            log.warn("      Response body: " + e.getResponseBodyAsString());
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        //return the result
+        return new ResponseEntity<>(isAdmin, HttpStatus.OK);
     }
 
     /**

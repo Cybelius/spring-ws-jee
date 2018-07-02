@@ -1,5 +1,6 @@
 package com.jee.core.controller;
 
+import com.jee.core.model.DeviceType;
 import com.jee.core.service.model.ActionAPI;
 import com.jee.core.service.model.DeviceAPI;
 import com.jee.core.service.model.MetricAPI;
@@ -144,11 +145,14 @@ public class MobileTransactionController extends AbstractController {
     /**
      *
      */
-    @PostMapping("/data/date-range")
-    public List<CalculatedDataOut> getDataCalculatedByDates(@PathVariable final Long startDate, @PathVariable final Long endDate) {
-        log.info("startDate: {}, endDate: {}", startDate, endDate);
+    @GetMapping(path = "/data/date-range", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CalculatedDataOut>> getDataCalculatedByDates(@RequestParam final long startDate,
+            @RequestParam final long endDate, @RequestParam final DeviceType deviceType) {
+        log.info("startDate: {}, endDate: {}, deviceType: {}", startDate, endDate, deviceType);
 
-        return super.calculationService.getDataCalculatedByDates(startDate, endDate);
+        List<CalculatedDataOut> values = super.calculationService.getDataCalculatedByDates(startDate, endDate, deviceType);
+
+        return new ResponseEntity<>(values, HttpStatus.OK);
     }
 
 

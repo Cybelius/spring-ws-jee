@@ -38,7 +38,7 @@ public class DeviceAPI {
 
     /**
      */
-    private Boolean disable;
+    private Boolean disabled;
 
     /**
      */
@@ -58,7 +58,7 @@ public class DeviceAPI {
                 ", name='" + name + '\'' +
                 ", nameDeviceType='" + nameDeviceType + '\'' +
                 ", typeDevices='" + typeDevices + '\'' +
-                ", disable=" + disable +
+                ", disabled=" + disabled +
                 '}';
     }
 
@@ -136,13 +136,13 @@ public class DeviceAPI {
 
     /**
      */
-    public Boolean getDisable() {
-        return disable;
+    public Boolean getDisabled() {
+        return disabled;
     }
 
     /**
      */
-    public void setDisable(final Boolean disable) {
-        this.disable = disable;
+    public void setDisabled(final Boolean disabled) {
+        this.disabled = disabled;
     }
 }

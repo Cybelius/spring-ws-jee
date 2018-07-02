@@ -3,6 +3,7 @@ package com.jee.core.service.support;
 import com.jee.core.model.CalculatedData;
 import com.jee.core.model.Calculation;
 import com.jee.core.model.DateType;
+import com.jee.core.model.DeviceType;
 import com.jee.core.repository.CalculationTransactionRepository;
 import com.jee.core.repository.DataCalculationTransactionRepository;
 import com.jee.core.service.model.transitionobject.CalculatedDataOut;
@@ -115,16 +116,23 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     /**
-     * @see CalculationService#getDataCalculatedByDates(long, long)
+     * @see CalculationService#getDataCalculatedByDates(long, long, DeviceType)
      */
     @Override
-    public List<CalculatedDataOut> getDataCalculatedByDates(final long startDate, final long endDate) {
+    public List<CalculatedDataOut> getDataCalculatedByDates(final long startDate, final long endDate, final DeviceType deviceType) {
         log.info("startDate: {}, endDate: {}", startDate, endDate);
 
-        final List<CalculatedData> results = this.dataCalculationTransactionRepository.findAllByDates(startDate, endDate);
+        final List<CalculatedData> results = this.dataCalculationTransactionRepository.findAllByDates(startDate, endDate, deviceType);
+        final List<CalculatedDataOut> entities = new ArrayList<>();
 
+        for (final CalculatedData entity : results) {
+            final CalculatedDataOut calculatedDataOut = new CalculatedDataOut(entity);
+            entities.add(calculatedDataOut);
+        }
 
-        return null;
+        //return the result
+
+        return entities;
     }
 
     /**

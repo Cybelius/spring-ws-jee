@@ -1,6 +1,7 @@
 package com.jee.core.repository;
 
 import com.jee.core.model.CalculatedData;
+import com.jee.core.model.DeviceType;
 
 import java.util.List;
 
@@ -27,6 +28,6 @@ public interface DataCalculationTransactionRepositoryEx {
 
     /**
      */
-    List<CalculatedData> findAllByDates(final long startDate, final long endDate);
+    List<CalculatedData> findAllByDates(final long startDate, final long endDate, final DeviceType deviceType);
 
 }

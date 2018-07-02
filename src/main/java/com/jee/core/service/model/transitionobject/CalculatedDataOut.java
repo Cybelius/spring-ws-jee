@@ -1,11 +1,15 @@
 package com.jee.core.service.model.transitionobject;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.jee.core.model.CalculatedData;
 import com.jee.core.model.DateType;
 
 /**
  * Created by Geoffrey on 29.06.2018
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class CalculatedDataOut {
 
     /**

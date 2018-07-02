@@ -7,6 +7,7 @@ com/jee/core/controller/BOTransactionController.class
 com/jee/core/controller/AbstractController$3.class
 com/jee/core/service/model/transitionobject/CalculatedDataOut.class
 com/jee/core/service/model/transitionobject/EmployeeOut.class
+com/jee/core/service/model/transitionobject/EmployeeIn.class
 com/jee/core/service/model/DeviceAPI.class
 com/jee/core/service/support/CalculationServiceImpl.class
 com/jee/core/repository/support/DataCalculationTransactionRepositoryImpl.class

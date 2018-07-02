@@ -30,6 +30,18 @@ public class EmployeeAPI {
 
     /**
      */
+    private String email;
+
+    /**
+     */
+    private String password;
+
+    /**
+     */
+    private Boolean isAdmin;
+
+    /**
+     */
     public EmployeeAPI() {
         super();
     }
@@ -40,9 +52,12 @@ public class EmployeeAPI {
     public String toString() {
         return "EmployeeAPI{" +
                 "id=" + id +
-                ", devices='" + devices + '\'' +
+                ", devices=" + devices +
                 ", lastName='" + lastName + '\'' +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 
@@ -92,5 +107,41 @@ public class EmployeeAPI {
      */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     */
+    public void setEmail(final String email) {
+        this.email = email;
+    }
+
+    /**
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     */
+    public void setPassword(final String password) {
+        this.password = password;
+    }
+
+    /**
+     */
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    /**
+     */
+    public void setAdmin(final Boolean admin) {
+        isAdmin = admin;
     }
 }
