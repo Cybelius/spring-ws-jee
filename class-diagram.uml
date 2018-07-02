@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jee.core</OriginalElement>
+  <nodes>
+    <node x="1905.1260531135536" y="664.0">com.jee.core.model.Calculation</node>
+    <node x="197.0" y="829.5">com.jee.core.Application</node>
+    <node x="0.0" y="1507.5">com.jee.core.controller.BOTransactionController</node>
+    <node x="1585.4829975579978" y="312.0">com.jee.core.model.DeviceType</node>
+    <node x="491.1677197802203" y="1186.0">com.jee.core.controller.AbstractController</node>
+    <node x="1942.7712606837608" y="1253.0">com.jee.core.repository.CalculationTransactionRepository</node>
+    <node x="518.0" y="1430.0">com.jee.core.controller.MobileTransactionController</node>
+    <node x="2283.771260683761" y="168.0">com.jee.core.model.CalculatedData</node>
+    <node x="2220.771260683761" y="1253.0">com.jee.core.repository.support</node>
+    <node x="2291.021260683761" y="0.0">com.jee.core.model.DateType</node>
+    <node x="1669.7712606837608" y="1208.5">com.jee.core.controller.CalculationTransactionController</node>
+    <node x="1590.9583333333333" y="1563.0">com.jee.core.service.support</node>
+    <node x="51.0" y="885.0">com.jee.core.service.model</node>
+    <node x="2272.251053113553" y="830.0">com.jee.core.repository.DataCalculationTransactionRepositoryEx</node>
+    <node x="983.0" y="819.0">com.jee.core.service.CalculationService</node>
+    <node x="2523.501053113553" y="1253.0">com.jee.core.repository.DataCalculationTransactionRepository</node>
+    <node x="2428.1035409035403" y="1563.0">com.jee.core.service.jms</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.jee.core.service.support" target="com.jee.core.model.DeviceType">
+      <point x="-19.71428571428578" y="-15.0" />
+      <point x="1640.2440476190475" y="1380.0" />
+      <point x="1605.2702075702073" y="1380.0" />
+      <point x="1605.2702075702073" y="614.0" />
+      <point x="1664.4829975579978" y="614.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.model.CalculatedData" target="com.jee.core.model.DateType">
+      <point x="61.25" y="-203.0" />
+      <point x="2467.521260683761" y="143.0" />
+      <point x="2381.021260683761" y="143.0" />
+      <point x="36.0" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.controller.CalculationTransactionController" target="com.jee.core.model.Calculation">
+      <point x="63.0" y="-59.5" />
+      <point x="1858.7712606837608" y="1156.0" />
+      <point x="1936.2510531135536" y="1156.0" />
+      <point x="-93.375" y="236.0" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.model.Calculation">
+      <point x="19.71428571428578" y="-15.0" />
+      <point x="1679.672619047619" y="1370.0" />
+      <point x="1932.2712606837608" y="1370.0" />
+      <point x="1932.2712606837608" y="1166.0" />
+      <point x="1998.5010531135536" y="1166.0" />
+      <point x="-31.125" y="236.0" />
+    </edge>
+    <edge source="com.jee.core.repository.CalculationTransactionRepository" target="com.jee.core.model.Calculation">
+      <point x="0.0" y="-15.0" />
+      <point x="2071.271260683761" y="1166.0" />
+      <point x="2060.7510531135536" y="1166.0" />
+      <point x="31.125" y="236.0" />
+    </edge>
+    <edge source="com.jee.core.controller.CalculationTransactionController" target="com.jee.core.model.CalculatedData">
+      <point x="-63.0" y="-59.5" />
+      <point x="1732.7712606837608" y="634.0" />
+      <point x="2345.021260683761" y="634.0" />
+      <point x="-61.25" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.repository.support" target="com.jee.core.model.CalculatedData">
+      <point x="-1.1368683772161603E-13" y="-15.0" />
+      <point x="2289.771260683761" y="1166.0" />
+      <point x="2261.751053113553" y="1166.0" />
+      <point x="2261.751053113553" y="644.0" />
+      <point x="2385.8545940170943" y="644.0" />
+      <point x="-20.41666666666663" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.controller.MobileTransactionController" target="com.jee.core.controller.AbstractController">
+      <point x="-130.4000000000001" y="-148.0" />
+      <point x="713.5999999999999" y="1410.0" />
+      <point x="660.6677197802203" y="1410.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="com.jee.core.repository.DataCalculationTransactionRepositoryEx" target="com.jee.core.model.CalculatedData">
+      <point x="111.00000000000011" y="-70.0" />
+      <point x="2605.2510531135536" y="644.0" />
+      <point x="2426.6879273504273" y="644.0" />
+      <point x="20.41666666666663" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.service.CalculationService">
+      <point x="-59.14285714285711" y="-15.0" />
+      <point x="1600.8154761904761" y="1400.0" />
+      <point x="1388.0" y="1400.0" />
+      <point x="135.0" y="81.0" />
+    </edge>
+    <edge source="com.jee.core.repository.support" target="com.jee.core.model.DeviceType">
+      <point x="-46.000000000000114" y="-15.0" />
+      <point x="2243.771260683761" y="1156.0" />
+      <point x="2189.270833333333" y="1156.0" />
+      <point x="2189.270833333333" y="614.0" />
+      <point x="1696.0829975579977" y="614.0" />
+      <point x="31.59999999999991" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.repository.CalculationTransactionRepository">
+      <point x="39.42857142857133" y="-15.0" />
+      <point x="1699.3869047619046" y="1380.0" />
+      <point x="2007.0212606837608" y="1380.0" />
+      <point x="-64.25" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.controller.AbstractController" target="com.jee.core.service.model">
+      <point x="-113.0" y="-82.0" />
+      <point x="547.6677197802203" y="1156.0" />
+      <point x="166.5" y="1156.0" />
+      <point x="52.5" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.controller.BOTransactionController" target="com.jee.core.Application">
+      <point x="0.0" y="-70.5" />
+      <point x="249.0" y="1410.0" />
+      <point x="271.06633089133106" y="1410.0" />
+      <point x="271.06633089133106" y="1166.0" />
+      <point x="324.6666666666665" y="1166.0" />
+      <point x="-255.33333333333348" y="70.5" />
+    </edge>
+    <edge source="com.jee.core.service.model" target="com.jee.core.service.model">
+      <point x="-52.5" y="15.0" />
+      <point x="61.5" y="935.0" />
+      <point x="31.0" y="935.0" />
+      <point x="31.0" y="910.0" />
+      <point x="-63.0" y="10.0" />
+    </edge>
+    <edge source="com.jee.core.controller.AbstractController" target="com.jee.core.service.CalculationService">
+      <point x="113.0" y="-82.0" />
+      <point x="773.6677197802203" y="1166.0" />
+      <point x="1118.0" y="1166.0" />
+      <point x="-135.0" y="81.0" />
+    </edge>
+    <edge source="com.jee.core.controller.BOTransactionController" target="com.jee.core.controller.AbstractController">
+      <point x="166.0" y="-70.5" />
+      <point x="415.0" y="1410.0" />
+      <point x="547.6677197802203" y="1410.0" />
+      <point x="-113.0" y="82.0" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.model.CalculatedData">
+      <point x="0.0" y="-15.0" />
+      <point x="1659.2712606837608" y="624.0" />
+      <point x="2304.1879273504273" y="624.0" />
+      <point x="-102.08333333333337" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.controller.MobileTransactionController" target="com.jee.core.service.model">
+      <point x="-260.8000000000002" y="-148.0" />
+      <point x="583.1999999999998" y="1400.0" />
+      <point x="140.5" y="1400.0" />
+      <point x="140.5" y="1166.0" />
+      <point x="145.5" y="1166.0" />
+      <point x="31.5" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.repository.support" target="com.jee.core.repository.DataCalculationTransactionRepositoryEx">
+      <point x="45.999999999999886" y="-15.0" />
+      <point x="2335.771260683761" y="1166.0" />
+      <point x="2383.251053113553" y="1166.0" />
+      <point x="-111.0" y="70.0" />
+    </edge>
+    <edge source="com.jee.core.service.jms" target="com.jee.core.model.CalculatedData">
+      <point x="41.25" y="-15.0" />
+      <point x="2524.3535409035403" y="1410.0" />
+      <point x="2819.001053113553" y="1410.0" />
+      <point x="2819.001053113553" y="624.0" />
+      <point x="2508.3545940170943" y="624.0" />
+      <point x="102.08333333333337" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.repository.DataCalculationTransactionRepository" target="com.jee.core.repository.DataCalculationTransactionRepositoryEx">
+      <point x="-71.25" y="-15.0" />
+      <point x="2594.751053113553" y="1166.0" />
+      <point x="2605.251053113553" y="1166.0" />
+      <point x="111.0" y="70.0" />
+    </edge>
+    <edge source="com.jee.core.controller.AbstractController" target="com.jee.core.Application">
+      <point x="0.0" y="-82.0" />
+      <point x="660.6677197802203" y="1166.0" />
+      <point x="580.0" y="1166.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.repository.DataCalculationTransactionRepository">
+      <point x="59.14285714285711" y="-15.0" />
+      <point x="1719.1011904761904" y="1390.0" />
+      <point x="2594.751053113553" y="1390.0" />
+      <point x="-71.25" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.controller.BOTransactionController" target="com.jee.core.service.model">
+      <point x="-166.0" y="-70.5" />
+      <point x="83.0" y="1410.0" />
+      <point x="100.77020757020728" y="1410.0" />
+      <point x="100.77020757020728" y="1166.0" />
+      <point x="124.5" y="1166.0" />
+      <point x="10.5" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.service.CalculationService" target="com.jee.core.model.DeviceType">
+      <point x="0.0" y="-81.0" />
+      <point x="1253.0" y="594.0" />
+      <point x="1601.282997557998" y="594.0" />
+      <point x="-63.200000000000045" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.service.jms" target="com.jee.core.repository.DataCalculationTransactionRepository">
+      <point x="13.75" y="-15.0" />
+      <point x="2496.8535409035403" y="1400.0" />
+      <point x="2737.251053113553" y="1400.0" />
+      <point x="71.25" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.service.jms" target="com.jee.core.repository.CalculationTransactionRepository">
+      <point x="-41.25" y="-15.0" />
+      <point x="2441.8535409035403" y="1380.0" />
+      <point x="2135.521260683761" y="1380.0" />
+      <point x="64.25" y="15.0" />
+    </edge>
+    <edge source="com.jee.core.controller.MobileTransactionController" target="com.jee.core.model.DeviceType">
+      <point x="260.8000000000002" y="-148.0" />
+      <point x="1104.8000000000002" y="1410.0" />
+      <point x="1533.5" y="1410.0" />
+      <point x="1533.5" y="604.0" />
+      <point x="1632.882997557998" y="604.0" />
+      <point x="-31.59999999999991" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.repository.DataCalculationTransactionRepository" target="com.jee.core.model.CalculatedData">
+      <point x="71.25" y="-15.0" />
+      <point x="2737.251053113553" y="1166.0" />
+      <point x="2726.751053113553" y="1166.0" />
+      <point x="2726.751053113553" y="634.0" />
+      <point x="2467.521260683761" y="634.0" />
+      <point x="61.25" y="203.0" />
+    </edge>
+    <edge source="com.jee.core.controller.MobileTransactionController" target="com.jee.core.Application">
+      <point x="130.4000000000001" y="-148.0" />
+      <point x="974.4000000000001" y="1410.0" />
+      <point x="911.0" y="1410.0" />
+      <point x="911.0" y="1156.0" />
+      <point x="835.3333333333335" y="1156.0" />
+      <point x="255.33333333333348" y="70.5" />
+    </edge>
+    <edge source="com.jee.core.repository.DataCalculationTransactionRepositoryEx" target="com.jee.core.model.DeviceType">
+      <point x="-110.99999999999989" y="-70.0" />
+      <point x="2383.2510531135536" y="604.0" />
+      <point x="1727.682997557998" y="604.0" />
+      <point x="63.200000000000045" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.service.support" target="com.jee.core.model.DateType">
+      <point x="-39.42857142857133" y="-15.0" />
+      <point x="1620.529761904762" y="1390.0" />
+      <point x="1544.5" y="1390.0" />
+      <point x="1544.5" y="143.0" />
+      <point x="2309.021260683761" y="143.0" />
+      <point x="-36.0" y="59.0" />
+    </edge>
+    <edge source="com.jee.core.service.jms" target="com.jee.core.model.Calculation">
+      <point x="-13.75" y="-15.0" />
+      <point x="2469.3535409035403" y="1370.0" />
+      <point x="2210.271260683761" y="1370.0" />
+      <point x="2210.271260683761" y="1166.0" />
+      <point x="2123.0010531135536" y="1166.0" />
+      <point x="93.375" y="236.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3737727910238429" x="1416.0" y="863.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

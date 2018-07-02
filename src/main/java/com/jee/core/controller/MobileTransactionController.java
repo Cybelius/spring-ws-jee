@@ -179,7 +179,6 @@ public class MobileTransactionController extends AbstractController {
                     .exchange(CONSTANT_IP_WCF + "/calculs/device/command",
                             HttpMethod.POST, entity, ActionAPI.class);
 
-//            log.info(response.toString());
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());

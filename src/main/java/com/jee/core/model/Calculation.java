@@ -46,17 +46,6 @@ public class Calculation {
     }
 
     /**
-     */
-    public Calculation(final String name, final String description,
-       final List<String> results, final Integer countValue, final Integer type) {
-        this.name = name;
-        this.description = description;
-        this.results = results;
-        this.countValue = countValue;
-        this.type = type;
-    }
-
-    /**
      *
      * @return a build String object
      */

@@ -40,8 +40,6 @@ public class BOTransactionController extends AbstractController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-//        log.info(devices.toString());
-
         //return the result
         return new ResponseEntity<>(devices, HttpStatus.OK);
     }
@@ -60,8 +58,6 @@ public class BOTransactionController extends AbstractController {
                 );
 
         final List<EmployeeAPI> employees = employeesResponse.getBody();
-
-//        log.info(employees.toString());
 
         //return the result
         return new ResponseEntity<>(employees, HttpStatus.OK);
@@ -89,8 +85,6 @@ public class BOTransactionController extends AbstractController {
             final ResponseEntity<Boolean> response = restTemplate
                     .exchange(CONSTANT_IP_WCF + "/calculs/employee/connect",
                             HttpMethod.POST, entity, Boolean.class);
-
-//            log.info(response.toString());
 
             isAdmin = response.getBody();
         } catch (HttpClientErrorException e) {
@@ -126,7 +120,6 @@ public class BOTransactionController extends AbstractController {
                     restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/employees/employee/" + id,
                             HttpMethod.PUT, entity, EmployeeOut.class);
 
-//            log.info(response.toString());
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());

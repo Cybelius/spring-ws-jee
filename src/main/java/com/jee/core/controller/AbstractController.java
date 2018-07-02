@@ -49,12 +49,8 @@ abstract class AbstractController {
                 }
             );
 
-        final List<DeviceAPI> devices = deviceResponse.getBody();
-
-        log.info(devices.toString());
-
         //return the result
-        return devices;
+        return deviceResponse.getBody();
     }
 
     /**
@@ -91,11 +87,7 @@ abstract class AbstractController {
                         }
                 );
 
-        final List<MetricAPI> metrics = metricResponse.getBody();
-
-        log.info(metrics.toString());
-
         //return the result
-        return metrics;
+        return metricResponse.getBody();
     }
 }
