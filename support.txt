@@ -10,3 +10,6 @@ https://stackoverflow.com/questions/285015/linux-prevent-a-background-process-fr
 Kill process nohup
 https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a-nohup-process
 
+Tomcat on ubuntu
+https://www.linode.com/docs/development/frameworks/apache-tomcat-on-ubuntu-16-04/
+
