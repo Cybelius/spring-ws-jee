@@ -43,6 +43,8 @@ public class MobileTransactionController extends AbstractController {
      */
     @GetMapping("/devices")
     public List<DeviceAPI> getListDevices() {
+        log.info("<-- Start transaction for list devices -->");
+        log.info(super.getListDevices().toString());
 
         //return the result
         return super.getListDevices();
@@ -63,6 +65,8 @@ public class MobileTransactionController extends AbstractController {
             throw new InternalError("no device found");
         }
 
+        log.info(device.toString());
+
         //return the result
         return device;
     }
@@ -76,14 +80,16 @@ public class MobileTransactionController extends AbstractController {
     public List<MetricAPI> getLatestMetricsByDevice(@PathVariable @NotNull final Long id) {
         log.debug("id: {}", id);
 
-        final List<MetricAPI> metricByDevices = super.getMetricsByDevices(id);
+        final List<MetricAPI> metrics = super.getMetricsByDevices(id);
 
-        if (metricByDevices == null) {
+        if (metrics == null) {
             throw new InternalError("no metrics found");
         }
 
+        log.info(metrics.toString());
+
         //return the result
-        return metricByDevices;
+        return metrics;
     }
 
     /**
@@ -99,6 +105,8 @@ public class MobileTransactionController extends AbstractController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        log.info(out.toString());
+
         return new ResponseEntity<>(out, HttpStatus.OK);
     }
 
@@ -109,7 +117,9 @@ public class MobileTransactionController extends AbstractController {
      */
     @GetMapping("/data/temperature")
     public List<CalculatedDataOut> getDataCalculatedTemp() {
-        return super.calculationService.getDataCalculatedByTemperature();
+        final List<CalculatedDataOut> temperatures = super.calculationService.getDataCalculatedByTemperature();
+        log.info(temperatures.toString());
+        return temperatures;
     }
 
     /**
@@ -119,7 +129,9 @@ public class MobileTransactionController extends AbstractController {
      */
     @GetMapping("/data/humidity")
     public List<CalculatedDataOut> getDataCalculatedHumidity() {
-        return super.calculationService.getDataCalculatedByHumidity();
+        final List<CalculatedDataOut> humidities = super.calculationService.getDataCalculatedByHumidity();
+        log.info(humidities.toString());
+        return humidities;
     }
 
     /**
@@ -129,7 +141,9 @@ public class MobileTransactionController extends AbstractController {
      */
     @GetMapping("/data/co2")
     public List<CalculatedDataOut> getDataCalculatedCo2() {
-        return super.calculationService.getDataCalculatedByCo2();
+        final List<CalculatedDataOut> co2s = super.calculationService.getDataCalculatedByCo2();
+        log.info(co2s.toString());
+        return co2s;
     }
 
     /**
@@ -139,7 +153,9 @@ public class MobileTransactionController extends AbstractController {
      */
     @GetMapping("/data/sound-level")
     public List<CalculatedDataOut> getDataCalculatedSoundLevel() {
-        return super.calculationService.getDataCalculatedBySoundLevel();
+        final List<CalculatedDataOut> soundLevels = super.calculationService.getDataCalculatedBySoundLevel();
+        log.info(soundLevels.toString());
+        return soundLevels;
     }
 
     /**
@@ -150,7 +166,9 @@ public class MobileTransactionController extends AbstractController {
             @RequestParam final long endDate, @RequestParam final DeviceType deviceType) {
         log.info("startDate: {}, endDate: {}, deviceType: {}", startDate, endDate, deviceType);
 
-        List<CalculatedDataOut> values = super.calculationService.getDataCalculatedByDates(startDate, endDate, deviceType);
+        final List<CalculatedDataOut> values = super.calculationService.getDataCalculatedByDates(startDate, endDate, deviceType);
+
+        log.info(values.toString());
 
         return new ResponseEntity<>(values, HttpStatus.OK);
     }
@@ -163,7 +181,7 @@ public class MobileTransactionController extends AbstractController {
      */
     @PostMapping("/action")
     public ResponseEntity<ActionAPI> requestDeviceAction(@RequestBody @NonNull final ActionAPI action) {
-        log.debug("action: {}", action);
+        log.info("action: {}", action);
 
         final RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -179,9 +197,12 @@ public class MobileTransactionController extends AbstractController {
                     .exchange(CONSTANT_IP_WCF + "/calculs/device/command",
                             HttpMethod.POST, entity, ActionAPI.class);
 
+            log.info(response.toString());
+
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(action, HttpStatus.OK);

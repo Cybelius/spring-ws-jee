@@ -34,11 +34,15 @@ public class BOTransactionController extends AbstractController {
      */
     @GetMapping("/devices")
     public ResponseEntity<List<DeviceAPI>> getDevices() {
+        log.info("<-- Start transaction for list devices -->");
+
         final List<DeviceAPI> devices = super.getListDevices();
 
         if (devices == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
+        log.info(devices.toString());
 
         //return the result
         return new ResponseEntity<>(devices, HttpStatus.OK);
@@ -51,13 +55,15 @@ public class BOTransactionController extends AbstractController {
     public ResponseEntity<List<EmployeeAPI>> getEmployees() {
         final RestTemplate restTemplate = new RestTemplate();
 
-        final ResponseEntity<List<EmployeeAPI>> employeesResponse =
+        final ResponseEntity<List<EmployeeAPI>> response =
                 restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/employees",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<EmployeeAPI>>() {
                         }
                 );
 
-        final List<EmployeeAPI> employees = employeesResponse.getBody();
+        final List<EmployeeAPI> employees = response.getBody();
+
+        log.info(response.toString());
 
         //return the result
         return new ResponseEntity<>(employees, HttpStatus.OK);
@@ -120,6 +126,7 @@ public class BOTransactionController extends AbstractController {
                     restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/employees/employee/" + id,
                             HttpMethod.PUT, entity, EmployeeOut.class);
 
+            log.info(response.toString());
         } catch (HttpClientErrorException e) {
             log.warn("HttpClientErrorException while completing connection: " + e.getMessage());
             log.warn("      Response body: " + e.getResponseBodyAsString());

@@ -13,3 +13,10 @@ https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a
 Tomcat on ubuntu
 https://www.linode.com/docs/development/frameworks/apache-tomcat-on-ubuntu-16-04/
 
+Purge memory ubuntu 
+su -c "echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'" root
+
+Use screen on AWS
+http://www.science.smith.edu/dftwiki/index.php/Tutorial:_So_you_want_to_run_your_code_on_Amazon%3F#6.29_Running_the_Java_Application_on_your_EC2_Instance
+
+

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.constraints.NotNull;
@@ -43,14 +44,16 @@ abstract class AbstractController {
     protected List<DeviceAPI> getListDevices() {
         final RestTemplate restTemplate = new RestTemplate();
 
-        final ResponseEntity<List<DeviceAPI>> deviceResponse =
+        final ResponseEntity<List<DeviceAPI>> response =
             restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/devices",
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<DeviceAPI>>() {
                 }
             );
 
+        log.info(response.toString());
+
         //return the result
-        return deviceResponse.getBody();
+        return response.getBody();
     }
 
     /**
@@ -58,7 +61,7 @@ abstract class AbstractController {
      * @return the list of devices
      */
     protected DeviceAPI getDevice(@NotNull final Long id) {
-        log.debug("id: {}", id);
+        log.info("id: {}", id);
 
         final RestTemplate restTemplate = new RestTemplate();
 
@@ -68,6 +71,8 @@ abstract class AbstractController {
                         }
                 );
 
+        log.info(response.toString());
+
         //return the result
         return response.getBody();
     }
@@ -76,18 +81,20 @@ abstract class AbstractController {
      * //TODO : check if possible to send a device name to get the right device
      * @return the list of devices
      */
-    protected List<MetricAPI> getMetricsByDevices(final Long id) {
+    protected List<MetricAPI> getMetricsByDevices(@NonNull final Long id) {
         log.debug("id: {}", id);
 
         final RestTemplate restTemplate = new RestTemplate();
 
-        final ResponseEntity<List<MetricAPI>> metricResponse =
+        final ResponseEntity<List<MetricAPI>> response =
                 restTemplate.exchange(CONSTANT_IP_WCF + "/calculs/devices/" + id + "/metrics",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<MetricAPI>>() {
                         }
                 );
 
+        log.info(response.toString());
+
         //return the result
-        return metricResponse.getBody();
+        return response.getBody();
     }
 }

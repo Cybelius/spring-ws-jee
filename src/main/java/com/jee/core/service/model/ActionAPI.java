@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class ActionAPI {
 
     /**
+     * id device
      */
     private Long id;
 
