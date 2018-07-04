@@ -50,8 +50,6 @@ abstract class AbstractController {
                 }
             );
 
-        log.info(response.toString());
-
         //return the result
         return response.getBody();
     }
@@ -71,8 +69,6 @@ abstract class AbstractController {
                         }
                 );
 
-        log.info(response.toString());
-
         //return the result
         return response.getBody();
     }
@@ -91,8 +87,6 @@ abstract class AbstractController {
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<MetricAPI>>() {
                         }
                 );
-
-        log.info(response.toString());
 
         //return the result
         return response.getBody();
